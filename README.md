@@ -53,3 +53,9 @@ To launch the game locally, execute the following command in your terminal:
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+
+## Test Results
+
+All tests passed successfully.
+
+![pytest results](images/pytest_results.png)
