@@ -101,7 +101,18 @@ if submit:
         outcome, message = check_guess(guess_int, secret)
 
         if show_hint:
-            st.warning(message)
+            diff = abs(guess_int - st.session_state.secret)
+
+            if diff == 0:
+                st.success("🎉 Perfect guess!")
+            elif diff <= 5:
+                st.success("🔥 Very hot! You're extremely close.")
+            elif diff <= 15:
+                st.info("🌡 Warm! You're getting closer.")
+            else:
+                st.warning("❄️ Cold guess. Try a different direction.")
+
+            st.write(message)
 
         st.session_state.score = update_score(
             current_score=st.session_state.score,

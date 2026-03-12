@@ -67,8 +67,17 @@ Copilot helped me structure the pytest test cases by suggesting the assertion fo
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
+
+The secret number kept changing because it wasn't stored in Streamlit session state. Every time the app reran (which happens frequently in Streamlit), the code reinitializing the secret number would execute again, generating a new random value. Without persistence, the number had no memory between reruns.
+
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+
+Streamlit reruns your entire script from top to bottom whenever the user interacts with the app (like clicking a button or typing input). Session state is like a notebook that remembers values across these reruns—without it, variables reset to their initial values each time. If you store something in session state, it persists even after reruns, so the game can "remember" the secret number.
+
 - What change did you make that finally gave the game a stable secret number?
+
+I moved the secret number initialization into Streamlit's `st.session_state` using a conditional check: `if 'secret_number' not in st.session_state:`. This ensures the secret number is generated only once at the start of a session and persists across all subsequent reruns, giving the game the stable number it needed.
+
 
 ---
 

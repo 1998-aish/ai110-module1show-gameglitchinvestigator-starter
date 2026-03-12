@@ -14,3 +14,17 @@ def test_guess_too_low():
     # If secret is 50 and guess is 40, hint should be "Too Low"
     outcome, message = check_guess(40, 50)
     assert outcome == "Too Low"
+
+def test_negative_guess():
+    outcome, message = check_guess(-10, 50)
+    assert outcome == "Too Low"
+
+
+def test_large_guess():
+    outcome, message = check_guess(100000, 50)
+    assert outcome == "Too High"
+
+
+def test_decimal_guess_handling():
+    outcome, message = check_guess(int(50.7), 50)
+    assert outcome == "Win"

@@ -42,20 +42,35 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📸 Demo
 
 This section showcases the Streamlit-based number guessing game application. The game features a fully debugged and refactored codebase that correctly handles guess evaluation and hint generation.
+![pytest results](images/pytest_results.png)
 
 ### Running the Application
 
 To launch the game locally, execute the following command in your terminal:
 
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
-
+- python3 -m streamlit run app.py
+![Winning game](images/winning_game.png)
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+The game UI was improved with hot/cold hints and color-coded feedback to help players understand how close their guesses are.
 
-## Test Results
+![Enhanced UI](images/ui_enhancement.png)
 
-All tests passed successfully.
+## Advanced Edge Case Testing
+
+Additional pytest tests were added to verify edge cases such as negative numbers, decimal inputs, and extremely large values.
 
 ![pytest results](images/pytest_results.png)
+
+## AI Model Comparison
+
+For one of the bugs discovered in Phase 1, I compared suggestions from two AI tools: GitHub Copilot Chat and ChatGPT.
+
+The bug involved the `check_guess()` function. When the guess was higher than the secret number, the game incorrectly returned a message suggesting that the player should guess higher instead of lower.
+
+GitHub Copilot was helpful in identifying the incorrect conditional logic inside the function. It suggested correcting the comparison so that when `guess > secret`, the hint would instruct the player to guess lower.
+
+ChatGPT provided a more detailed explanation of why the bug occurred. It explained that the comparison logic was correct, but the message associated with the condition was reversed, which caused misleading hints during gameplay.
+
+Overall, Copilot produced a quick and readable code fix, while ChatGPT provided a clearer explanation of the reasoning behind the correction. Using both tools together helped ensure the bug was both fixed correctly and fully understood.
