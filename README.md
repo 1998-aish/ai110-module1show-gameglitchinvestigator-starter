@@ -23,13 +23,30 @@ It wrote the code, ran away, and now the game is unplayable.
    - Run `pytest` in your terminal.
    - Keep fixing until all tests pass!
 
+
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] **Game Purpose:** A Streamlit-based number guessing game where players try to guess a secret number with hints.
+- [x] **Bugs Found:** 
+   - State management issue: secret number reset on every button click
+   - Reversed hint logic in `check_guess()`: when the guess was higher than the secret number, the hint incorrectly suggested guessing higher instead of lower
+- [x] **Fixes Applied:**
+   - Implemented Streamlit session state to persist the secret number across interactions
+   - Corrected the comparison logic in `check_guess()` function
+   - Refactored game logic into `logic_utils.py` for modularity and testability
+   - Created comprehensive pytest tests in `tests/test_game_logic.py`
+   - Verified all tests pass with `python3 -m pytest`
+   - Validated hint system accuracy through manual gameplay testing
+
 
 ## 📸 Demo
+
+This section showcases the Streamlit-based number guessing game application. The game features a fully debugged and refactored codebase that correctly handles guess evaluation and hint generation.
+
+### Running the Application
+
+To launch the game locally, execute the following command in your terminal:
+
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
 
